@@ -1,6 +1,9 @@
 import './globals.css';
+import { AppProvider } from './context/AppContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Toast from './components/Toast';
+import ScrollToTop from './components/ScrollToTop';
 
 export const metadata = {
   title: 'MD Coaching Hub - Learn Smartest',
@@ -12,9 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <AppProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <Toast />
+          <ScrollToTop />
+        </AppProvider>
       </body>
     </html>
   );
