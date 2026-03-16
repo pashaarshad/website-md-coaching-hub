@@ -31,6 +31,13 @@ export default function LearnSection() {
             and app development to game design and cybersecurity. Experience interactive
             learning with live projects, mentorship, and placement support.
           </p>
+          <div style={{marginTop: '1.5rem', display: 'flex', justifyContent: 'center'}}>
+            <img
+              src="/images/dcb318320c74da179b68e7f94405a60be6789ba9.png"
+              alt="Business Growth"
+              style={{maxHeight: '200px', borderRadius: '10px'}}
+            />
+          </div>
         </div>
       </div>
     </section>
