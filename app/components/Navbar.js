@@ -15,6 +15,7 @@ export default function Navbar() {
     { href: '/courses', label: 'Course' },
     { href: '/certification', label: 'Certification' },
     { href: '/placements', label: 'Placements' },
+    { href: '/digital-marketing', label: 'Digital Tools' },
     { href: '/contact', label: 'Contact Us' },
   ];
 
