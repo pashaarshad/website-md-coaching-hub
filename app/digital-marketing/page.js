@@ -73,12 +73,22 @@ export default function DigitalMarketingLanding() {
                 </div>
              </div>
 
+             <div className="dm-pricing-block">
+               <span className="dm-price-old">₹60,000</span>
+               <span className="dm-price-new">₹15,000</span>
+             </div>
+
              <div className="dm-cta-group">
-               <button className="dm-btn-primary" onClick={handleBookNow}>Book Now - Secure Your Spot</button>
-               <Link href="#tools" className="dm-btn-secondary">Explore Tools</Link>
+               <button className="dm-btn-primary dm-btn-huge pulse" onClick={handleBookNow}>
+                 Book Now - Secure Your Spot FOR ₹15,000
+               </button>
              </div>
           </div>
           <div className="dm-hero-image">
+            <div className="dm-discount-badge">
+              <span className="badge-flame">🔥</span>
+              <span className="badge-text">75% OFF!</span>
+            </div>
             <img src="/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png" alt="Digital Marketing Strategy" />
             <div className="dm-glow-circle"></div>
           </div>
