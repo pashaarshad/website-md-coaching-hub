@@ -48,49 +48,50 @@ export default function DigitalMarketingLanding() {
         {/* Hero Banner */}
         <section className="dm-hero reveal">
           <div className="dm-hero-content">
-             <div className="dm-badge">🚀 NEW LAUNCH</div>
-             <h1 className="dm-title">The Ultimate <span>Digital Marketing</span> Toolkit</h1>
-             <p className="dm-subtitle">Everything you need to automate your campaigns, boost ROI, and scale your business to 7-figures. Exclusively available to MD Coaching Hub members.</p>
+             <h1 className="dm-title">🚀 Become a <span>Digital Marketing Expert</span> in 30 Days</h1>
+             <p className="dm-subtitle">Master SEO, Ads, Social Media & AI Tools—Even If You&apos;re a Beginner</p>
              
-             {/* Countdown Panel */}
-             <div className="dm-countdown-box">
-                <div className="countdown-header">⏰ Book Now! Early Access Ends In: </div>
-                <div className="countdown-timer">
-                  <div className="time-block">
-                    <span className="time-num">{String(timeLeft.hours).padStart(2, '0')}</span>
-                    <span className="time-label">HOURS</span>
-                  </div>
-                  <div className="time-colon">:</div>
-                  <div className="time-block">
-                    <span className="time-num">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                    <span className="time-label">MINS</span>
-                  </div>
-                  <div className="time-colon">:</div>
-                  <div className="time-block">
-                    <span className="time-num">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                    <span className="time-label">SECS</span>
-                  </div>
-                </div>
+             <div className="dm-urgency-banner">
+               <span className="urgency-icon">⚡</span> Early Access Ends in 24 Hours!
+               <div className="urgency-glow-line"></div>
              </div>
 
-             <div className="dm-pricing-block">
-               <span className="dm-price-old">₹60,000</span>
-               <span className="dm-price-new">₹15,000</span>
+             <div className="dm-pricing-section">
+               <div className="dm-price-old"><span>₹60,000</span></div>
+               <div className="dm-price-new">₹15,000</div>
+               <div className="dm-offer-tag">
+                 <span className="star">⭐</span> 75% OFF Limited Offer!
+                 <div className="offer-underline"></div>
+               </div>
              </div>
 
-             <div className="dm-cta-group">
-               <button className="dm-btn-primary dm-btn-huge pulse" onClick={handleBookNow}>
-                 Book Now - Secure Your Spot FOR ₹15,000
-               </button>
+             <div className="dm-cta-row">
+               <button className="dm-btn-red pulse" onClick={handleBookNow}>Book Now</button>
+               <button className="dm-btn-yellow" onClick={handleBookNow}>Get Early Access</button>
+             </div>
+
+             <div className="dm-social-proof">
+               <span><span className="sp-icon">⭐</span> 4.8/5 Rating</span>
+               <span className="divider">|</span>
+               <span><span className="sp-icon">👥</span> 5,000+ Students</span>
+               <span className="divider">|</span>
+               <span><span className="sp-icon">💼</span> Industry Experts</span>
              </div>
           </div>
+
           <div className="dm-hero-image">
-            <div className="dm-discount-badge">
-              <span className="badge-flame">🔥</span>
-              <span className="badge-text">75% OFF!</span>
+            <img src="/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png" alt="Digital Marketing Course" />
+            <div className="dm-glow-circle-red"></div>
+          </div>
+          
+          <div className="dm-bottom-timer-bar">
+            <div className="timer-content">
+              <span className="timer-icon">🕒</span> 
+              <span className="timer-text">Offer expires in:</span>
+              <span className="timer-digits">
+                {String(timeLeft.hours).padStart(2, '0')} : {String(timeLeft.minutes).padStart(2, '0')} : {String(timeLeft.seconds).padStart(2, '0')}
+              </span>
             </div>
-            <img src="/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png" alt="Digital Marketing Strategy" />
-            <div className="dm-glow-circle"></div>
           </div>
         </section>
 
