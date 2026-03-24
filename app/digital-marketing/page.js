@@ -88,9 +88,22 @@ export default function DigitalMarketingLanding() {
             <div className="timer-content">
               <span className="timer-icon">🕒</span> 
               <span className="timer-text">Offer expires in:</span>
-              <span className="timer-digits">
-                {String(timeLeft.hours).padStart(2, '0')} : {String(timeLeft.minutes).padStart(2, '0')} : {String(timeLeft.seconds).padStart(2, '0')}
-              </span>
+              <div className="countdown-timer-mini">
+                <div className="time-block-mini">
+                  <span className="time-num-mini">{String(timeLeft.hours).padStart(2, '0')}</span>
+                  <span className="time-label-mini">HRS</span>
+                </div>
+                <div className="time-colon-mini">:</div>
+                <div className="time-block-mini">
+                  <span className="time-num-mini">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                  <span className="time-label-mini">MINS</span>
+                </div>
+                <div className="time-colon-mini">:</div>
+                <div className="time-block-mini">
+                  <span className="time-num-mini">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                  <span className="time-label-mini">SECS</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
