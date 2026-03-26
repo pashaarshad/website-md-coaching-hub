@@ -80,7 +80,7 @@ export default function DigitalMarketingLanding() {
           </div>
 
           <div className="dm-hero-image">
-            <img src="/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png" alt="Digital Marketing Course" />
+            <img src="/extracted-imgs/16_Dark_Blue_Illustrative_Digital_Marketing_Agency_Instagram_Post.png" alt="Digital Marketing Course" />
             <div className="dm-glow-circle-red"></div>
           </div>
           

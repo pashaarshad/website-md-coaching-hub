@@ -4,7 +4,7 @@ export default function LearnSection() {
   return (
     <section className="learn-section" id="learn-section">
       <img
-        src="/images/6ad842a58149f478fda7e7926e20f5019e53b751.png"
+        src="/extracted-imgs/62_MD_COACHING.png"
         alt="Learn Background"
         className="learn-bg"
       />
@@ -33,7 +33,7 @@ export default function LearnSection() {
           </p>
           <div style={{marginTop: '1.5rem', display: 'flex', justifyContent: 'center'}}>
             <img
-              src="/images/dcb318320c74da179b68e7f94405a60be6789ba9.png"
+              src="/extracted-imgs/41_Blue_and_Gradient_Corporate_Presentation_.png"
               alt="Business Growth"
               style={{maxHeight: '200px', borderRadius: '10px'}}
             />

@@ -37,7 +37,7 @@ export default function LoginPage() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-left">
-          <img src="/images/6ad842a58149f478fda7e7926e20f5019e53b751.png" alt="Learn Smartest" />
+          <img src="/extracted-imgs/62_MD_COACHING.png" alt="Learn Smartest" />
           <div className="auth-left-overlay">
             <h2>Welcome Back!</h2>
             <p>Login to access your courses, track progress, and continue your learning journey.</p>

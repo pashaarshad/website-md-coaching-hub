@@ -48,7 +48,7 @@ export default function SignupPage() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-left">
-          <img src="/images/6ad842a58149f478fda7e7926e20f5019e53b751.png" alt="Learn Smartest" />
+          <img src="/extracted-imgs/62_MD_COACHING.png" alt="Learn Smartest" />
           <div className="auth-left-overlay">
             <h2>Join Us Today!</h2>
             <p>Create your account and get access to 50+ courses, expert mentors, and placement support.</p>

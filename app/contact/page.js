@@ -25,7 +25,7 @@ export default function ContactPage() {
   return (
     <div className="contact-page">
       <div className="cert-hero">
-        <img src="/images/6ad842a58149f478fda7e7926e20f5019e53b751.png" alt="Contact" className="cert-hero-bg" />
+        <img src="/extracted-imgs/62_MD_COACHING.png" alt="Contact" className="cert-hero-bg" />
         <div className="cert-hero-overlay">
           <h1>Contact Us</h1>
           <p>Have questions? We&apos;re here to help. Reach out to us and we&apos;ll get back to you within 24 hours.</p>
