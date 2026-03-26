@@ -16,7 +16,7 @@
   --cta-green: #2563eb;
   --cta-green-hover: #38bdf8;
   --white: #ffffff;
-  --off-white: #f5f5f5;
+  --off-white: #f8f9fc;
   --text-dark: #222222;
   --text-muted: #666666;
   --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -59,15 +59,13 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 0, 64, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #3b00d4;
   padding: 0 2rem;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
 }
 
 .navbar-brand {
@@ -168,9 +166,9 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  margin-top: 64px;
+  margin-top: 70px;
   overflow: hidden;
-  background: var(--primary-dark);
+  background: var(--off-white);
 }
 
 .hero-slider-container {
@@ -181,9 +179,43 @@ img {
 
 .hero-slide-img {
   min-width: 100%;
+  width: 100%;
   height: auto;
-  object-fit: cover;
-  max-height: 500px;
+  display: block;
+}
+
+/* Arrow Navigation */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  line-height: 1;
+}
+
+.hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-arrow-left {
+  left: 15px;
+}
+
+.hero-arrow-right {
+  right: 15px;
 }
 
 .hero-slider-dots {
@@ -247,10 +279,10 @@ img {
 
 .course-card {
   background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.05); /* very professional thin border */
-  border-radius: var(--border-radius);
+  border: none;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06); /* softer, premium shadow */
+  box-shadow: 0 4px 20px rgba(59, 0, 212, 0.08);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -258,8 +290,7 @@ img {
 
 .course-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.12); /* nice float lift */
-  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 40px rgba(59, 0, 212, 0.18);
 }
 
 .course-card-image {
@@ -344,33 +375,33 @@ img {
 
 .enroll-btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--cta-green), #1d4ed8);
+  background: linear-gradient(135deg, #3b00d4, #6d28d9);
   color: var(--white);
   font-family: var(--font);
   font-size: 0.9rem;
   font-weight: 700;
   padding: 0.75rem 1.8rem;
   border: none;
-  border-radius: 8px; /* elegant squircle */
+  border-radius: 8px;
   cursor: pointer;
   text-transform: capitalize;
   letter-spacing: 0.3px;
   transition: var(--transition);
   text-align: center;
   width: fit-content;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 12px rgba(59, 0, 212, 0.25);
 }
 
 .enroll-btn:hover {
-  background: linear-gradient(135deg, var(--cta-green-hover), var(--cta-green));
+  background: linear-gradient(135deg, #6d28d9, #3b00d4);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 25px rgba(59, 0, 212, 0.4);
 }
 
 /* ===== OUR COURSES SECTION ===== */
 .our-courses {
   padding: 4rem 2rem;
-  background: var(--off-white);
+  background: #f8f9fc;
 }
 
 .our-courses .section-content {
@@ -399,18 +430,18 @@ img {
 
 .mini-course-card {
   background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.05); /* clean light border */
-  border-radius: var(--border-radius);
+  border: none;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(59, 0, 212, 0.08);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
 }
 
 .mini-course-card:hover {
-  transform: translateY(-6px) scale(1.02); /* lovely scalable float */
-  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(59, 0, 212, 0.18);
 }
 
 .mini-course-card .card-img {

@@ -14,12 +14,19 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Slits automatically every 2.5 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
+
+  const goToPrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
 
   return (
     <section className="hero" id="hero-section">
@@ -36,17 +43,15 @@ export default function Hero() {
           />
         ))}
       </div>
-      
-      {/* Slider Indicators */}
-      <div className="hero-slider-dots">
-        {images.map((_, i) => (
-          <span 
-            key={i} 
-            className={`hero-dot ${i === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(i)}
-          />
-        ))}
-      </div>
+
+      {/* Left / Right Arrow Navigation */}
+      <button className="hero-arrow hero-arrow-left" onClick={goToPrev} aria-label="Previous slide">
+        &#8249;
+      </button>
+      <button className="hero-arrow hero-arrow-right" onClick={goToNext} aria-label="Next slide">
+        &#8250;
+      </button>
     </section>
   );
 }
+
