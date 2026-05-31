@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
+import { useRouter } from 'next/navigation';
 import ScrollReveal from '../components/ScrollReveal';
 import Link from 'next/link';
 
 export default function DigitalMarketingLanding() {
-  const { showToast } = useApp();
+  const { addToCart, showToast } = useApp();
+  const router = useRouter();
   
   // Fake countdown state
   const [timeLeft, setTimeLeft] = useState({
@@ -19,7 +21,7 @@ export default function DigitalMarketingLanding() {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        if (prev.minutes > 0) return { ...prev, minutes: prev.seconds === 0 ? prev.minutes - 1 : prev.minutes, seconds: 59 };
         if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
         return prev;
       });
@@ -27,17 +29,93 @@ export default function DigitalMarketingLanding() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleBookNow = () => {
-    showToast('✨ Feature activating soon! You are on the waitlist.', 'info');
+  // Testimonials Auto-sliding State
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [fadeState, setFadeState] = useState('fade-in');
+
+  const testimonials = [
+    {
+      name: 'Rohit Sharma',
+      age: 22,
+      city: 'Jaipur',
+      role: 'Digital Marketing Executive @ TechSpark Agency',
+      quote: 'I had zero knowledge of Meta Ads or Google Analytics. MD Coaching Hub taught me live campaigns, not just theory. Got placed within 3 months. Started at ₹18K — now at ₹32K in 8 months.'
+    },
+    {
+      name: 'Priya Verma',
+      age: 24,
+      city: 'Sikar',
+      role: 'Social Media Manager @ D2C Brand',
+      quote: 'No coding background, no experience. But the practical training here — real projects, ad copy, content strategy — got me my first client in just 2 months. Total game changer.'
+    },
+    {
+      name: 'Aman Choudhary',
+      age: 26,
+      city: 'Alwar',
+      role: 'Freelancer | ₹40,000+/month',
+      quote: 'SEO, paid ads, funnel strategy — everything was taught so clearly that I could confidently pitch clients. Today I have 4 active clients. MD Coaching Hub made freelancing real for me.'
+    },
+    {
+      name: 'Neha Gupta',
+      age: 23,
+      city: 'Delhi',
+      role: 'Performance Marketer @ Startup',
+      quote: 'They asked me about ROAS and CPA in my interview — I nailed it because I had actually practiced it here. Got an internship, full-time offer in 45 days.'
+    },
+    {
+      name: 'Deepak Saini',
+      age: 25,
+      city: 'Bharatpur',
+      role: 'Google Ads Specialist @ Agency',
+      quote: 'Tried learning from YouTube — too scattered. Here I got a proper roadmap, quick doubt solving, and even mock interviews. Felt like someone genuinely wanted me to succeed.'
+    },
+    {
+      name: 'Anjali Meena',
+      age: 21,
+      city: 'Tonk',
+      role: 'Remote Job | Hired in 60 Days',
+      quote: 'Digital marketing opened a door I didn\'t know existed. Got a remote job within 60 days of completing the course. MD Coaching Hub didn\'t just teach — they placed me.'
+    }
+  ];
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setFadeState('fade-out');
+      setTimeout(() => {
+        setCurrentSlide(prev => (prev + 1) % testimonials.length);
+        setFadeState('fade-in');
+      }, 300); // matches fade out time
+    }, 2500); // slide every 2.5 seconds (allowing 2 seconds full view)
+    return () => clearInterval(slideTimer);
+  }, [testimonials.length]);
+
+  const handleBuyNow = () => {
+    const dmCourse = {
+      id: 101,
+      title: 'Digital Marketing Masterclass',
+      price: 15000,
+      image: '/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png',
+      label: 'DIGITAL',
+      sublabel: 'MARKETING',
+      duration: '4 Weeks',
+      level: 'Beginner to Pro',
+      description: 'Master Meta Ads, Google Ads, SEO, SMM, and AI tools with live campaigns.'
+    };
+    addToCart(dmCourse);
+    router.push('/cart');
   };
 
-  const tools = [
-    { name: 'SEO Analyzer Pro', desc: 'Real-time site auditing and keyword tracking.', icon: '🔍' },
-    { name: 'Social Scheduler', desc: 'Auto-post content across all platforms effortlessly.', icon: '📱' },
-    { name: 'Email Funnel Builder', desc: 'Drag-and-drop workflow for automated campaigns.', icon: '📧' },
-    { name: 'Ad Conversion Tracker', desc: 'Unified pixel analytics for Facebook, Google & LinkedIn.', icon: '📈' },
-    { name: 'AI Copywriter', desc: 'Generate high-converting ad copy in seconds.', icon: '🤖' },
-    { name: 'Competitor Spy', desc: 'Analyze competitor backlinks and top-performing pages.', icon: '🕵️' },
+  const handleContactUs = () => {
+    router.push('/contact');
+  };
+
+  const modules = [
+    { name: 'Meta Ads', desc: 'Master hyper-targeted Facebook & Instagram campaigns, custom audiences, custom conversion funnels, and high-ROAS creative scaling.', icon: '🎯' },
+    { name: 'Google Ads', desc: 'Conquer Google Search, Display, Performance Max, and YouTube campaigns. Learn deep keyword bid strategies and exact conversion tracking.', icon: '📈' },
+    { name: 'SEO (Search Engine Optimization)', desc: 'Learn technical site audits, semantic keyword mapping, search intent optimization, and high-authority premium backlink acquisition.', icon: '🔍' },
+    { name: 'SMM (Social Media Marketing)', desc: 'Build viral organic strategies, content calendars, brand communication, and high-engagement social media pages across platforms.', icon: '📱' },
+    { name: 'AI Marketing', desc: 'Accelerate your workflow with modern AI copywriting, automated prompt engineering, audience analytics models, and auto-bot lead nurturing.', icon: '🤖' },
+    { name: 'Influencer Collaboration', desc: 'Discover high-converting micro-influencers, run ROI-driven outreach campaigns, manage content contracts, and scale brand awareness.', icon: '🤝' },
   ];
 
   return (
@@ -52,30 +130,30 @@ export default function DigitalMarketingLanding() {
              <p className="dm-subtitle">Master SEO, Ads, Social Media & AI Tools—Even If You&apos;re a Beginner</p>
              
              <div className="dm-urgency-banner">
-               <span className="urgency-icon">⚡</span> Early Access Ends in 24 Hours!
-               <div className="urgency-glow-line"></div>
+                <span className="urgency-icon">⚡</span> Early Access Ends in 24 Hours!
+                <div className="urgency-glow-line"></div>
              </div>
 
              <div className="dm-pricing-section">
-               <div className="dm-price-old"><span>₹60,000</span></div>
-               <div className="dm-price-new">₹15,000</div>
-               <div className="dm-offer-tag">
-                 <span className="star">⭐</span> 75% OFF Limited Offer!
-                 <div className="offer-underline"></div>
-               </div>
+                <div className="dm-price-old"><span>₹60,000</span></div>
+                <div className="dm-price-new">₹15,000</div>
+                <div className="dm-offer-tag">
+                  <span className="star">⭐</span> 75% OFF Limited Offer!
+                  <div className="offer-underline"></div>
+                </div>
              </div>
 
              <div className="dm-cta-row">
-               <button className="dm-btn-red pulse" onClick={handleBookNow}>Book Now</button>
-               <button className="dm-btn-yellow" onClick={handleBookNow}>Get Early Access</button>
+                <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now</button>
+                <button className="dm-btn-premium-contact" onClick={handleContactUs}>Contact Us</button>
              </div>
 
              <div className="dm-social-proof">
-               <span><span className="sp-icon">⭐</span> 4.8/5 Rating</span>
-               <span className="divider">|</span>
-               <span><span className="sp-icon">👥</span> 5,000+ Students</span>
-               <span className="divider">|</span>
-               <span><span className="sp-icon">💼</span> Industry Experts</span>
+                <span><span className="sp-icon">⭐</span> 4.8/5 Rating</span>
+                <span className="divider">|</span>
+                <span><span className="sp-icon">👥</span> 5,000+ Students</span>
+                <span className="divider">|</span>
+                <span><span className="sp-icon">💼</span> Industry Experts</span>
              </div>
           </div>
 
@@ -108,21 +186,111 @@ export default function DigitalMarketingLanding() {
           </div>
         </section>
 
-        {/* Tools Section */}
-        <section id="tools" className="dm-tools-section">
+        {/* Modules Section (Formerly Tools Section) */}
+        <section id="modules" className="dm-tools-section">
           <div className="dm-tools-header reveal">
-            <h2>Your Growth Arsenal</h2>
-            <p>6 Premium tools integrated into one dashboard.</p>
+            <h2>6 Premium Top Modules</h2>
+            <p>Our ultra-premium, practical curriculum tailored for high-paying roles.</p>
           </div>
           
           <div className="dm-tools-grid">
-            {tools.map((tool, index) => (
+            {modules.map((module, index) => (
               <div className="dm-tool-card reveal" key={index}>
-                <div className="dm-tool-icon">{tool.icon}</div>
-                <h3>{tool.name}</h3>
-                <p>{tool.desc}</p>
+                <div className="dm-tool-icon">{module.icon}</div>
+                <h3>{module.name}</h3>
+                <p>{module.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Why Choose Us Section (New) */}
+        <section className="dm-why-choose-section">
+          <div className="dm-why-choose-container reveal">
+            <div className="dm-why-choose-left">
+              <div className="certificate-wrapper">
+                <img 
+                  src="/images/md_certificate.png" 
+                  alt="MD Coaching Hub Certificate of Completion" 
+                  className="certificate-image"
+                />
+                <div className="certificate-glow"></div>
+              </div>
+            </div>
+            <div className="dm-why-choose-right">
+              <span className="dm-section-badge">WHY CHOOSE US</span>
+              <h2>Why Choose <span>MD Coaching Hub</span>?</h2>
+              <p className="dm-why-intro">We provide a practical, goal-oriented education system designed to make you an industry leader rather than just teaching you tools.</p>
+              
+              <ul className="why-benefits-list">
+                <li>
+                  <span className="benefit-icon">💡</span>
+                  <div>
+                    <h4>100% Practical Training</h4>
+                    <p>Work on live client campaigns, manage actual budgets, and build dynamic lead pipelines.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="benefit-icon">🏆</span>
+                  <div>
+                    <h4>Industry Recognized Certification</h4>
+                    <p>Earn a highly valued certificate of completion to validate your expertise in top digital agencies.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="benefit-icon">🚀</span>
+                  <div>
+                    <h4>Assured Interview & Placements</h4>
+                    <p>Dedicated mock interviews, resume refinement, and placement portals to launch your tech career.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="benefit-icon">🎓</span>
+                  <div>
+                    <h4>Elite 1-on-1 Mentorship</h4>
+                    <p>Receive direct feedback and roadmaps from active digital performance marketing heads.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div className="why-cta-wrapper">
+                <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Swiper.js-like Testimonials Section (10% viewport height themed) */}
+        <section className="dm-compact-testimonials-section">
+          <div className="slider-wrapper">
+            <div className={`testimonial-slide ${fadeState}`}>
+              <div className="slide-content">
+                <span className="quote-mark">“</span>
+                <p className="quote-text">{testimonials[currentSlide].quote}</p>
+                <div className="testimonial-author-meta">
+                  <span className="author-name">{testimonials[currentSlide].name}</span>
+                  <span className="author-age-city">({testimonials[currentSlide].age} | {testimonials[currentSlide].city})</span>
+                  <span className="author-role">{testimonials[currentSlide].role}</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Slide Indicators */}
+            <div className="slide-dots">
+              {testimonials.map((_, idx) => (
+                <button 
+                  key={idx} 
+                  className={`dot ${currentSlide === idx ? 'active' : ''}`}
+                  onClick={() => {
+                    setFadeState('fade-out');
+                    setTimeout(() => {
+                      setCurrentSlide(idx);
+                      setFadeState('fade-in');
+                    }, 300);
+                  }}
+                ></button>
+              ))}
+            </div>
           </div>
         </section>
         
@@ -130,7 +298,7 @@ export default function DigitalMarketingLanding() {
         <section className="dm-bottom-cta reveal">
           <h2>Don&apos;t Let Your Competitors Win.</h2>
           <p>Join 10,000+ marketers already utilizing our toolkit.</p>
-          <button className="dm-btn-primary dm-btn-large" onClick={handleBookNow}>Claim Your Access Now</button>
+          <button className="dm-btn-premium-buy dm-btn-large" onClick={handleBuyNow}>Buy Now</button>
         </section>
 
       </div>
