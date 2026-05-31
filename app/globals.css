@@ -2692,7 +2692,7 @@ img {
 /* Search engine styling */
 .cert-search-section {
   max-width: 650px;
-  margin: -2.5rem auto 3rem; /* overlaps slightly with stats bar for visual depth */
+  margin: 3rem auto 3rem;
   background: var(--white);
   padding: 1.5rem;
   border-radius: 16px;
