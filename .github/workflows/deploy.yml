@@ -18,28 +18,36 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT || '22' }}
           script: |
-            echo "🚀 Starting deployment..."
+            echo "🚀 Starting static deployment..."
 
-            cd ~/domains/mdcoachinghub.in/public_html
+            # Go to a temp build directory (NOT public_html)
+            mkdir -p ~/build-tmp/md-coaching
+            cd ~/build-tmp/md-coaching
 
-            echo "📥 Pulling latest code from master..."
+            echo "📥 Pulling latest code..."
+            git init 2>/dev/null || true
+            git remote add origin https://github.com/pashaarshad/website-md-coaching-hub.git 2>/dev/null || git remote set-url origin https://github.com/pashaarshad/website-md-coaching-hub.git
             git fetch --all
             git reset --hard origin/master
 
             echo "📦 Installing dependencies..."
             npm install
 
-            echo "🔨 Building Next.js..."
+            echo "🔨 Building static export..."
             npm run build
 
-            echo "🔄 Restarting app (Passenger + PM2 fallback)..."
-            # Try Passenger restart first (Hostinger shared hosting)
-            mkdir -p tmp
-            touch tmp/restart.txt
+            echo "🗂️ Deploying static files to public_html..."
+            # Clear existing files (keep .htaccess if exists)
+            find ~/domains/mdcoachinghub.in/public_html -mindepth 1 -not -name '.htaccess' -delete 2>/dev/null || true
 
-            # Also try PM2 if available
-            pm2 restart md-coaching 2>/dev/null || true
-            pm2 describe md-coaching 2>/dev/null || NODE_ENV=production pm2 start server.js --name "md-coaching" 2>/dev/null || true
-            pm2 save 2>/dev/null || true
+            # Copy the static export output
+            cp -r ~/build-tmp/md-coaching/out/. ~/domains/mdcoachinghub.in/public_html/
 
-            echo "✅ Deployment done!"
+            # Copy images from public/images
+            mkdir -p ~/domains/mdcoachinghub.in/public_html/images
+            cp -r ~/build-tmp/md-coaching/public/. ~/domains/mdcoachinghub.in/public_html/ 2>/dev/null || true
+
+            echo "🧹 Cleaning up build temp..."
+            rm -rf ~/build-tmp/md-coaching
+
+            echo "✅ Deployment complete! Site is live."
