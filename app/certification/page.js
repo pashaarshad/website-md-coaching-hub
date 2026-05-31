@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import ScrollReveal from '../components/ScrollReveal';
 
-const certifications = [
+// Standard available certifications (for enrollment)
+const availableCertifications = [
   {
     id: 1, title: 'AWS Cloud Practitioner',
     provider: 'Amazon Web Services', duration: '8 Weeks',
@@ -47,7 +49,55 @@ const certifications = [
   },
 ];
 
+// Database of verified student certificates
+const verifiedCertificates = [
+  {
+    code: 'MD2026',
+    studentName: 'Rohit Sharma',
+    course: 'Digital Marketing Masterclass',
+    issueDate: 'May 31, 2026',
+    grade: 'A+ (Elite Distinction)',
+    status: 'Verified & Active',
+    image: '/images/md_certificate.png'
+  },
+  {
+    code: 'MD2026-DEV',
+    studentName: 'Aman Choudhary',
+    course: 'Full Stack Web Development',
+    issueDate: 'April 15, 2026',
+    grade: 'A (High Honors)',
+    status: 'Verified & Active',
+    image: '/images/md_certificate.png'
+  },
+  {
+    code: 'MD2026-SMM',
+    studentName: 'Priya Verma',
+    course: 'Social Media Marketing Specialist',
+    issueDate: 'June 01, 2026',
+    grade: 'A+ (Elite Distinction)',
+    status: 'Verified & Active',
+    image: '/images/md_certificate.png'
+  }
+];
+
 export default function CertificationPage() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCertImage, setSelectedCertImage] = useState(null);
+
+  // Search logic
+  const queryCleaned = searchQuery.trim().toUpperCase();
+  
+  // 1. Check if the query matches a verified certificate code exactly
+  const matchedVerified = verifiedCertificates.find(
+    c => c.code.toUpperCase() === queryCleaned
+  );
+
+  // 2. Filter available enrollable certifications by keyword if not matching a verified code
+  const filteredCertifications = availableCertifications.filter(c =>
+    c.title.toUpperCase().includes(queryCleaned) ||
+    c.provider.toUpperCase().includes(queryCleaned)
+  );
+
   return (
     <>
       <ScrollReveal />
@@ -57,7 +107,7 @@ export default function CertificationPage() {
           <img src="/images/6ad842a58149f478fda7e7926e20f5019e53b751.png" alt="Certifications" className="cert-hero-bg" />
           <div className="cert-hero-overlay">
             <h1>Professional Certifications</h1>
-            <p>Industry-recognized certifications to accelerate your career. Prepared by experts, trusted by employers worldwide.</p>
+            <p>Industry-recognized credentials to accelerate your career. Search and verify authentic student certifications instantly.</p>
           </div>
         </div>
 
@@ -81,32 +131,137 @@ export default function CertificationPage() {
           </div>
         </div>
 
-        {/* Certifications Grid */}
+        {/* Search Engine Section */}
+        <div className="cert-search-section reveal">
+          <div className="search-container">
+            <span className="search-icon">🔍</span>
+            <input 
+              type="text" 
+              placeholder="Verify Certificate Code (e.g., MD2026) or search programs..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="cert-search-input"
+            />
+            {searchQuery && (
+              <button className="search-clear-btn" onClick={() => setSearchQuery('')}>×</button>
+            )}
+          </div>
+          <p className="search-hint">Enter your student ID or verification code to check authentication status.</p>
+        </div>
+
+        {/* Content Display */}
         <div className="cert-content">
-          <h2 className="section-title">Available Certifications</h2>
-          <div className="cert-grid">
-            {certifications.map((cert) => (
-              <div className="cert-card reveal" key={cert.id}>
-                <div className="cert-card-img">
-                  <img src={cert.image} alt={cert.title} />
-                  <div className="cert-provider">{cert.provider}</div>
-                </div>
-                <div className="cert-card-body">
-                  <h3>{cert.title}</h3>
-                  <p className="cert-duration">⏱ {cert.duration}</p>
-                  <p className="cert-desc">{cert.description}</p>
-                  <div className="cert-benefits">
-                    {cert.benefits.map((b, i) => (
-                      <span className="cert-badge" key={i}>{b}</span>
-                    ))}
+          {/* Case A: Exact Verified Certificate Found */}
+          {matchedVerified ? (
+            <div className="verified-result-container reveal">
+              <div className="verified-badge-large">
+                <span className="badge-check">✓</span> Authenticity Verified
+              </div>
+              
+              <div className="verified-dashboard-card">
+                <div className="dashboard-left">
+                  <div className="cert-preview-box" onClick={() => setSelectedCertImage(matchedVerified.image)}>
+                    <img src={matchedVerified.image} alt="MD Coaching Hub Certificate" className="preview-thumbnail" />
+                    <div className="preview-overlay">
+                      <span className="preview-icon">🔍</span>
+                      <span>Click to View Full Certificate</span>
+                    </div>
                   </div>
-                  <button className="enroll-btn" id={`cert-enroll-${cert.id}`}>
-                    Enroll Now
-                  </button>
+                </div>
+                
+                <div className="dashboard-right">
+                  <span className="cert-type-tag">OFFICIAL MD CREDENTIAL</span>
+                  <h2>MD Coaching Hub Certified Graduate</h2>
+                  
+                  <table className="verification-details-table">
+                    <tbody>
+                      <tr>
+                        <td className="detail-label">Student Name:</td>
+                        <td className="detail-value">{matchedVerified.studentName}</td>
+                      </tr>
+                      <tr>
+                        <td className="detail-label">Program Completed:</td>
+                        <td className="detail-value">{matchedVerified.course}</td>
+                      </tr>
+                      <tr>
+                        <td className="detail-label">Verification Code:</td>
+                        <td className="detail-value-code">{matchedVerified.code}</td>
+                      </tr>
+                      <tr>
+                        <td className="detail-label">Graduation Date:</td>
+                        <td className="detail-value">{matchedVerified.issueDate}</td>
+                      </tr>
+                      <tr>
+                        <td className="detail-label">Grade / Distinction:</td>
+                        <td className="detail-value-grade">{matchedVerified.grade}</td>
+                      </tr>
+                      <tr>
+                        <td className="detail-label">Status:</td>
+                        <td className="detail-value-status">
+                          <span className="status-dot"></span> {matchedVerified.status}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div className="verification-actions">
+                    <button 
+                      className="view-full-cert-btn" 
+                      onClick={() => setSelectedCertImage(matchedVerified.image)}
+                    >
+                      Open Full Certificate
+                    </button>
+                    <button className="download-pdf-btn" onClick={() => window.print()}>
+                      Print Verification
+                    </button>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            <>
+              {/* Case B: Keyword Search Results */}
+              <h2 className="section-title">
+                {searchQuery ? `Search Results (${filteredCertifications.length})` : 'Available Certifications'}
+              </h2>
+              
+              {filteredCertifications.length > 0 ? (
+                <div className="cert-grid">
+                  {filteredCertifications.map((cert) => (
+                    <div className="cert-card reveal" key={cert.id}>
+                      <div className="cert-card-img">
+                        <img src={cert.image} alt={cert.title} />
+                        <div className="cert-provider">{cert.provider}</div>
+                      </div>
+                      <div className="cert-card-body">
+                        <h3>{cert.title}</h3>
+                        <p className="cert-duration">⏱ {cert.duration}</p>
+                        <p className="cert-desc">{cert.description}</p>
+                        <div className="cert-benefits">
+                          {cert.benefits.map((b, i) => (
+                            <span className="cert-badge" key={i}>{b}</span>
+                          ))}
+                        </div>
+                        <button className="enroll-btn" id={`cert-enroll-${cert.id}`}>
+                          Enroll Now
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                /* Case C: No results found at all */
+                <div className="no-cert-results-card reveal">
+                  <span className="warning-icon">⚠️</span>
+                  <h3>No Verified Credentials Found</h3>
+                  <p>We could not find any active student certificates matching <strong>&quot;{searchQuery}&quot;</strong>. Please check the spelling or verify the credential code.</p>
+                  <button className="reset-search-btn" onClick={() => setSearchQuery('')}>
+                    View All Certifications
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         {/* Process */}
@@ -135,6 +290,17 @@ export default function CertificationPage() {
             </div>
           </div>
         </div>
+
+        {/* Full-Screen Lightbox Modal for Certificate Viewing */}
+        {selectedCertImage && (
+          <div className="cert-lightbox-modal" onClick={() => setSelectedCertImage(null)}>
+            <button className="lightbox-close-btn" onClick={() => setSelectedCertImage(null)}>×</button>
+            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+              <img src={selectedCertImage} alt="Verified Certificate Full Resolution" className="lightbox-image" />
+              <p className="lightbox-caption">MD Coaching Hub Official Verified Graduate Certificate</p>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
