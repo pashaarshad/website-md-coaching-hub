@@ -158,7 +158,7 @@ export default function DigitalMarketingLanding() {
           </div>
 
           <div className="dm-hero-image">
-            <img src="/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png" alt="Digital Marketing Course" />
+            <img src="/images/16_Dark_Blue_Illustrative_Digital_Marketing_Agency_Instagram_Post.png" alt="Digital Marketing Course" />
             <div className="dm-glow-circle-red"></div>
           </div>
           
@@ -294,11 +294,14 @@ export default function DigitalMarketingLanding() {
           </div>
         </section>
         
-        {/* Bottom CTA */}
-        <section className="dm-bottom-cta reveal">
-          <h2>Don&apos;t Let Your Competitors Win.</h2>
-          <p>Join 10,000+ marketers already utilizing our toolkit.</p>
-          <button className="dm-btn-premium-buy dm-btn-large" onClick={handleBuyNow}>Buy Now</button>
+        {/* Creative Bottom CTA Section */}
+        <section className="dm-creative-cta reveal">
+          <div className="dm-creative-cta-container">
+            <span className="dm-creative-cta-tag">LIMITED SEATS AVAILABLE</span>
+            <h2>Ready to Scale Your Career to the Next Level?</h2>
+            <p>Secure your spot in the masterclass today and gain immediate access to premium live-campaign training, agency-recognized certification, and direct client placement portals.</p>
+            <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now & Get 75% Off</button>
+          </div>
         </section>
 
       </div>
