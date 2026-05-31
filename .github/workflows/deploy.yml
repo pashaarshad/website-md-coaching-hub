@@ -18,28 +18,28 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT || '22' }}
           script: |
-            echo "🚀 Connecting to server and starting deployment..."
+            echo "🚀 Starting deployment..."
 
-            # Navigate to the project directory on the server
             cd ~/domains/mdcoachinghub.in/public_html
 
-            # Fetch latest changes and reset to master
-            echo "📥 Fetching latest code from master..."
+            echo "📥 Pulling latest code from master..."
             git fetch --all
             git reset --hard origin/master
 
-            # Install ALL dependencies (including devDependencies for build)
-            echo "📦 Installing npm dependencies..."
+            echo "📦 Installing dependencies..."
             npm install
 
-            # Build the Next.js app
-            echo "🔨 Building Next.js production bundle..."
+            echo "🔨 Building Next.js..."
             npm run build
 
-            # Stop existing PM2 process if running
-            echo "🔄 Restarting application via PM2..."
-            pm2 delete md-coaching 2>/dev/null || true
-            NODE_ENV=production pm2 start server.js --name "md-coaching"
-            pm2 save
+            echo "🔄 Restarting app (Passenger + PM2 fallback)..."
+            # Try Passenger restart first (Hostinger shared hosting)
+            mkdir -p tmp
+            touch tmp/restart.txt
 
-            echo "🎉 Deployment successfully completed!"
+            # Also try PM2 if available
+            pm2 restart md-coaching 2>/dev/null || true
+            pm2 describe md-coaching 2>/dev/null || NODE_ENV=production pm2 start server.js --name "md-coaching" 2>/dev/null || true
+            pm2 save 2>/dev/null || true
+
+            echo "✅ Deployment done!"
