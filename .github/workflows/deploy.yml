@@ -34,10 +34,7 @@ jobs:
             echo "📦 Installing npm dependencies..."
             npm install --production=false
             
-            # Build Next.js
-            echo "🏗️ Building Next.js application..."
-            npm run build
-            
+
             # Restart PM2 process
             echo "🔄 Restarting application process manager..."
             pm2 restart all || pm2 start npm --name "md-coaching" -- run start
