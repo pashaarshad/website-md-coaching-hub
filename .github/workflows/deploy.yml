@@ -23,7 +23,7 @@ jobs:
             
             # Navigate to the project directory on the server
             # NOTE: Please adjust this path below to match your actual directory path on your server!
-            cd /var/www/website-md-coaching-hub || cd ~/website-md-coaching-hub || cd ~/public_html
+            cd ~/domains/mdcoachinghub.in/public_html
             
             # Fetch latest changes and reset to origin
             echo "📥 Fetching latest code..."
