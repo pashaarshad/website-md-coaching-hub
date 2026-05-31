@@ -1,0 +1,14 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/cart/page": "/cart",
+  "/certification/page": "/certification",
+  "/contact/page": "/contact",
+  "/courses/page": "/courses",
+  "/digital-marketing/page": "/digital-marketing",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/",
+  "/placements/page": "/placements",
+  "/signup/page": "/signup"
+}
