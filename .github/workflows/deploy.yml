@@ -3,7 +3,6 @@ name: CI/CD Deployment
 on:
   push:
     branches:
-      - main
       - master
 
 jobs:
@@ -20,23 +19,27 @@ jobs:
           port: ${{ secrets.SERVER_PORT || '22' }}
           script: |
             echo "🚀 Connecting to server and starting deployment..."
-            
-            # Navigate to the project directory on the server
-            # NOTE: Please adjust this path below to match your actual directory path on your server!
-            cd ~/domains/mdcoachinghub.in/public_html
-            
-            # Fetch latest changes and reset to origin
-            echo "📥 Fetching latest code..."
-            git fetch --all
-            git reset --hard origin/${{ github.ref_name }}
-            
-            # Install dependencies
-            echo "📦 Installing npm dependencies..."
-            npm install --production=false
-            
 
-            # Restart PM2 process
-            echo "🔄 Restarting application process manager..."
-            pm2 restart all || pm2 start npm --name "md-coaching" -- run start
-            
+            # Navigate to the project directory on the server
+            cd ~/domains/mdcoachinghub.in/public_html
+
+            # Fetch latest changes and reset to master
+            echo "📥 Fetching latest code from master..."
+            git fetch --all
+            git reset --hard origin/master
+
+            # Install ALL dependencies (including devDependencies for build)
+            echo "📦 Installing npm dependencies..."
+            npm install
+
+            # Build the Next.js app
+            echo "🔨 Building Next.js production bundle..."
+            npm run build
+
+            # Stop existing PM2 process if running
+            echo "🔄 Restarting application via PM2..."
+            pm2 delete md-coaching 2>/dev/null || true
+            NODE_ENV=production pm2 start server.js --name "md-coaching"
+            pm2 save
+
             echo "🎉 Deployment successfully completed!"
