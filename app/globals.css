@@ -2276,33 +2276,188 @@ img {
   border-radius: 50px;
 }
 
+/* ===== DM PAGE - TABLET (max-width: 968px) ===== */
 @media (max-width: 968px) {
   .dm-hero {
     flex-direction: column;
-    padding: 2rem;
+    padding: 3rem 1.5rem 5rem;
+    min-height: auto;
   }
   .dm-hero-content {
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     text-align: center;
+    max-width: 100%;
   }
-  .dm-countdown-box {
-    display: flex;
-    flex-direction: column;
+  .dm-title {
+    font-size: 2.4rem;
+  }
+  .dm-urgency-banner {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dm-pricing-section {
     align-items: center;
   }
-  .dm-cta-group {
+  .dm-cta-row {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  .dm-social-proof {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .dm-hero-image {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+  .dm-hero-image img {
+    max-width: 340px;
+    transform: scale(1);
   }
   .dm-tools-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .timer-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.95rem;
   }
 }
 
+/* ===== DM PAGE - MOBILE (max-width: 640px) ===== */
 @media (max-width: 640px) {
-  .dm-title { font-size: 2.5rem; }
-  .dm-cta-group { flex-direction: column; }
-  .time-num { font-size: 1.8rem; min-width: 50px; }
-  .dm-tools-grid { grid-template-columns: 1fr; }
+  .dm-hero {
+    padding: 2rem 1rem 4.5rem;
+  }
+  .dm-title {
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
+  .dm-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+  }
+  .dm-urgency-banner {
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dm-price-old {
+    font-size: 1.2rem;
+  }
+  .dm-price-new {
+    font-size: 2.6rem;
+  }
+  .dm-offer-tag {
+    font-size: 0.85rem;
+  }
+  .dm-cta-row {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  .dm-btn-premium-buy,
+  .dm-btn-premium-contact {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .dm-social-proof {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .dm-social-proof .divider {
+    display: none;
+  }
+  .dm-hero-image img {
+    max-width: 260px;
+    border-radius: 14px;
+  }
+  .dm-bottom-timer-bar {
+    padding: 0.7rem 0.5rem;
+  }
+  .timer-content {
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+  }
+  .timer-text {
+    font-size: 0.85rem;
+  }
+  .countdown-timer-mini {
+    margin-left: 0;
+    gap: 0.35rem;
+  }
+  .time-num-mini {
+    font-size: 1.1rem;
+    min-width: 36px;
+    padding: 0.2rem 0.4rem;
+  }
+  .time-label-mini {
+    font-size: 0.5rem;
+  }
+  .time-colon-mini {
+    font-size: 1.1rem;
+    margin-top: -10px;
+  }
+  /* Modules section mobile */
+  .dm-tools-section {
+    padding: 3rem 1rem;
+  }
+  .dm-tools-header {
+    margin-bottom: 2rem;
+  }
+  .dm-tools-header h2 {
+    font-size: 1.6rem;
+  }
+  .dm-tools-header p {
+    font-size: 0.9rem;
+  }
+  .dm-tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .dm-tool-card {
+    padding: 1.5rem 1.2rem;
+  }
+  .dm-tool-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+  }
+  .dm-tool-card h3 {
+    font-size: 1.05rem;
+  }
+  .dm-tool-card p {
+    font-size: 0.82rem;
+  }
+}
+
+/* ===== DM PAGE - SMALL MOBILE (max-width: 400px) ===== */
+@media (max-width: 400px) {
+  .dm-title {
+    font-size: 1.4rem;
+  }
+  .dm-subtitle {
+    font-size: 0.82rem;
+  }
+  .dm-price-new {
+    font-size: 2.2rem;
+  }
+  .dm-hero-image img {
+    max-width: 200px;
+  }
+  .dm-btn-premium-buy,
+  .dm-btn-premium-contact {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.2rem;
+  }
 }
 
 /* ===== NEW WHY CHOOSE US SECTION ===== */
@@ -2592,10 +2747,70 @@ img {
   }
 }
 
+@media (max-width: 640px) {
+  .dm-compact-testimonials-section {
+    padding: 1.2rem 0.8rem;
+    min-height: 160px;
+  }
+  .quote-mark {
+    font-size: 1.6rem;
+  }
+  .quote-text {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .testimonial-author-meta {
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+  }
+  .author-name {
+    font-size: 0.82rem;
+  }
+  .author-age-city {
+    font-size: 0.7rem;
+  }
+  .author-role {
+    font-size: 0.68rem;
+    padding: 0.12rem 0.5rem;
+  }
+  .slide-dots {
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+  }
+  .slide-dots .dot {
+    width: 5px;
+    height: 5px;
+  }
+  .slide-dots .dot.active {
+    width: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dm-compact-testimonials-section {
+    min-height: 180px;
+    padding: 1rem 0.5rem;
+  }
+  .quote-text {
+    font-size: 0.75rem;
+  }
+}
+
 @media (max-width: 968px) {
+  .dm-why-choose-section {
+    padding: 4rem 1.5rem;
+  }
   .dm-why-choose-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+  .dm-why-choose-left {
+    order: -1;
+  }
+  .certificate-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
   }
   .dm-why-choose-right h2 {
     font-size: 2.2rem;
@@ -2610,6 +2825,53 @@ img {
   }
   .why-cta-wrapper {
     text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .dm-why-choose-section {
+    padding: 3rem 1rem;
+  }
+  .dm-why-choose-container {
+    gap: 2rem;
+  }
+  .certificate-wrapper {
+    max-width: 95%;
+  }
+  .dm-why-choose-right h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .dm-why-intro {
+    font-size: 0.9rem;
+  }
+  .why-benefits-list {
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .why-benefits-list li {
+    gap: 0.8rem;
+  }
+  .benefit-icon {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .why-benefits-list h4 {
+    font-size: 1rem;
+  }
+  .why-benefits-list p {
+    font-size: 0.82rem;
+  }
+  .why-cta-wrapper .dm-btn-premium-buy {
+    width: 100%;
+    max-width: 280px;
+  }
+  @keyframes floatCert {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 }
 
@@ -2670,9 +2932,50 @@ img {
   margin-bottom: 3rem;
 }
 
+@media (max-width: 968px) {
+  .dm-creative-cta {
+    padding: 5rem 1.5rem;
+  }
+  .dm-creative-cta h2 {
+    font-size: 2.4rem;
+  }
+}
+
 @media (max-width: 640px) {
-  .dm-creative-cta h2 { font-size: 2.2rem; }
-  .dm-creative-cta p { font-size: 0.95rem; }
+  .dm-creative-cta {
+    padding: 3.5rem 1rem;
+  }
+  .dm-creative-cta h2 {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+  .dm-creative-cta p {
+    font-size: 0.88rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .dm-creative-cta-tag {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  .dm-creative-cta .dm-btn-premium-buy {
+    width: 100%;
+    max-width: 280px;
+    font-size: 0.9rem;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .dm-creative-cta h2 {
+    font-size: 1.35rem;
+  }
+  .dm-creative-cta p {
+    font-size: 0.8rem;
+  }
 }
 
 /* ===== CERTIFICATION UPGRADES ===== */
