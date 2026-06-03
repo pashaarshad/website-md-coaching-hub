@@ -128,18 +128,26 @@ export default function DigitalMarketingLanding() {
     '/vedios-and-photos/SnapInsta.to_671108377_18085789862581881_5097290585760954277_n.jpg.jpeg'
   ];
 
-  // Student videos from videos-and-photos
+  // Student videos from videos-and-photos (9:16 aspect ratio vertical clips)
   const studentVideos = [
-    { src: '/vedios-and-photos/SnapInsta.to_AQMn7-Mbp1h44iI95UGX680uGmF6KTayWXFMS7NqzN2WHWgx-4YWc6TPO38MFJD6xBdp4-OOeVossj9FZmKTiiET.mp4', title: 'Student Success Story & Certification' },
-    { src: '/vedios-and-photos/SnapInsta.to_AQO-xtq0q84QpnmzWLj4gnhtsJbPv1g0OIGagaLBvJvu6Ow5kd7BuLWi0RQ6v3bsP_0cR6IDItOuiCO3SeqAHM05vHSwM6BTtNLbsz8.mp4', title: 'Agency Placement Review' },
-    { src: '/vedios-and-photos/SnapInsta.to_AQO0XCNKvB_g21ncu_c4A5pbMaDV6DFdGDNHOFdAylmglBPbtKIMu46XnZgLHIEXi6yWhd-EQOepwsXD84wAmPi6NAL0muy903KA9GY.mp4', title: 'Graduation Day Celebration' },
-    { src: '/vedios-and-photos/SnapInsta.to_AQOCqrAetqgOQf6e2-paNdfilCX2pACZf7EuaGb8Z9IqlN9jqGztyhTzmoiNlNNfYQTvoW6lrCysURnJP_qESHOo6tWqExaN-uUGXiI.mp4', title: 'Meta Ads & Campaign Experience' },
-    { src: '/vedios-and-photos/SnapInsta.to_AQOnnj2MYzki3rQmyCvJ1JW3nd9f8O5-11SrlxnjqKzw5XB3suCe6-xgCE7XQZZqnYA4Ksv2cmhUciNBXxvruZ472HoXmJeE0XJVWOA.mp4', title: 'Live Performance Marketing' },
-    { src: '/vedios-and-photos/SnapInsta.to_AQOoJhT8wDERFpBP4-LSqfnnznl5CXzt2NQZyGtwiCTvOzybjLioIRq9TSuoqFeQJq1Mo9DNa3Qg21r2O_o8Yn9aiwxwRvF04h3SRGY.mp4', title: 'Direct Student Feedback' }
+    { src: '/vedios-and-photos/SnapInsta.to_AQMn7-Mbp1h44iI95UGX680uGmF6KTayWXFMS7NqzN2WHWgx-4YWc6TPO38MFJD6xBdp4-OOeVossj9FZmKTiiET.mp4', title: 'Student Success Story 1' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQO-xtq0q84QpnmzWLj4gnhtsJbPv1g0OIGagaLBvJvu6Ow5kd7BuLWi0RQ6v3bsP_0cR6IDItOuiCO3SeqAHM05vHSwM6BTtNLbsz8.mp4', title: 'Student Success Story 2' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQO0XCNKvB_g21ncu_c4A5pbMaDV6DFdGDNHOFdAylmglBPbtKIMu46XnZgLHIEXi6yWhd-EQOepwsXD84wAmPi6NAL0muy903KA9GY.mp4', title: 'Student Success Story 3' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOCqrAetqgOQf6e2-paNdfilCX2pACZf7EuaGb8Z9IqlN9jqGztyhTzmoiNlNNfYQTvoW6lrCysURnJP_qESHOo6tWqExaN-uUGXiI.mp4', title: 'Student Success Story 4' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOnnj2MYzki3rQmyCvJ1JW3nd9f8O5-11SrlxnjqKzw5XB3suCe6-xgCE7XQZZqnYA4Ksv2cmhUciNBXxvruZ472HoXmJeE0XJVWOA.mp4', title: 'Student Success Story 5' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOoJhT8wDERFpBP4-LSqfnnznl5CXzt2NQZyGtwiCTvOzybjLioIRq9TSuoqFeQJq1Mo9DNa3Qg21r2O_o8Yn9aiwxwRvF04h3SRGY.mp4', title: 'Student Success Story 6' }
   ];
 
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeVideo, setActiveVideo] = useState(0);
+
+  // Auto-playing Slider for Certificate Ceremony (No manual operations needed)
+  useEffect(() => {
+    const photoTimer = setInterval(() => {
+      setActivePhoto(prev => (prev + 1) % studentSnapshots.length);
+    }, 3000); // changes photo every 3 seconds
+    return () => clearInterval(photoTimer);
+  }, [studentSnapshots.length]);
 
   return (
     <>
@@ -148,41 +156,43 @@ export default function DigitalMarketingLanding() {
         
         {/* Hero Banner */}
         <section className="dm-hero reveal">
-          <div className="dm-hero-content">
-             <h1 className="dm-title">🚀 Become a <span>Digital Marketing Expert</span> in 30 Days</h1>
-             <p className="dm-subtitle">Master SEO, Ads, Social Media & AI Tools—Even If You&apos;re a Beginner</p>
-             
-             <div className="dm-urgency-banner">
-                <span className="urgency-icon">⚡</span> Early Access Ends in 24 Hours!
-                <div className="urgency-glow-line"></div>
-             </div>
+          <div className="dm-hero-container">
+            <div className="dm-hero-content">
+               <h1 className="dm-title">🚀 Become a <span>Digital Marketing Expert</span> in 30 Days</h1>
+               <p className="dm-subtitle">Master SEO, Ads, Social Media & AI Tools—Even If You&apos;re a Beginner</p>
+               
+               <div className="dm-urgency-banner">
+                  <span className="urgency-icon">⚡</span> Early Access Ends in 24 Hours!
+                  <div className="urgency-glow-line"></div>
+               </div>
 
-             <div className="dm-pricing-section">
-                <div className="dm-price-old"><span>₹60,000</span></div>
-                <div className="dm-price-new">₹15,000</div>
-                <div className="dm-offer-tag">
-                   <span className="star">⭐</span> 75% OFF Limited Offer!
-                   <div className="offer-underline"></div>
-                </div>
-             </div>
+               <div className="dm-pricing-section">
+                  <div className="dm-price-old"><span>₹60,000</span></div>
+                  <div className="dm-price-new">₹15,000</div>
+                  <div className="dm-offer-tag">
+                     <span className="star">⭐</span> 75% OFF Limited Offer!
+                     <div className="offer-underline"></div>
+                  </div>
+               </div>
 
-             <div className="dm-cta-row">
-                <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now</button>
-                <button className="dm-btn-premium-contact" onClick={handleContactUs}>Contact Us</button>
-             </div>
+               <div className="dm-cta-row">
+                  <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now</button>
+                  <button className="dm-btn-premium-contact" onClick={handleContactUs}>Contact Us</button>
+               </div>
 
-             <div className="dm-social-proof">
-                <span><span className="sp-icon">⭐</span> 4.8/5 Rating</span>
-                <span className="divider">|</span>
-                <span><span className="sp-icon">👥</span> 5,000+ Students</span>
-                <span className="divider">|</span>
-                <span><span className="sp-icon">💼</span> Industry Experts</span>
-             </div>
-          </div>
+               <div className="dm-social-proof">
+                  <span><span className="sp-icon">⭐</span> 4.8/5 Rating</span>
+                  <span className="divider">|</span>
+                  <span><span className="sp-icon">👥</span> 5,000+ Students</span>
+                  <span className="divider">|</span>
+                  <span><span className="sp-icon">💼</span> Industry Experts</span>
+               </div>
+            </div>
 
-          <div className="dm-hero-image">
-            <img src="/vedios-and-photos/poster.PNG" alt="Digital Marketing Course Poster" />
-            <div className="dm-glow-circle-red"></div>
+            <div className="dm-hero-image">
+              <img src="/vedios-and-photos/poster.PNG" alt="Digital Marketing Course Poster" />
+              <div className="dm-glow-circle-red"></div>
+            </div>
           </div>
           
           <div className="dm-bottom-timer-bar">
@@ -209,7 +219,7 @@ export default function DigitalMarketingLanding() {
           </div>
         </section>
 
-        {/* Modules Section (Formerly Tools Section) */}
+        {/* Modules Section */}
         <section id="modules" className="dm-tools-section">
           <div className="dm-tools-header reveal">
             <h2>6 Premium Top Modules</h2>
@@ -234,9 +244,10 @@ export default function DigitalMarketingLanding() {
               <div className="certificate-wrapper">
                 <img 
                   src="/images/md_certificate.png" 
-                  alt="MD Coaching Hub Certificate of Completion" 
+                  alt="MD Coaching Hub Sample Certificate of Completion" 
                   className="certificate-image"
                 />
+                <div className="certificate-badge-overlay">SAMPLE CERTIFICATE</div>
                 <div className="certificate-glow"></div>
               </div>
             </div>
@@ -283,84 +294,72 @@ export default function DigitalMarketingLanding() {
           </div>
         </section>
 
-        {/* Brand New: Student Success Celebrations Section */}
-        <section className="dm-celebrations-section reveal">
-          <div className="dm-celebrations-header">
-            <span className="dm-section-badge">CELEBRATIONS</span>
+        {/* Brand New: Student Success Celebrations Section (White Background) */}
+        <section className="dm-celebrations-section reveal light-bg">
+          <div className="dm-celebrations-header dark-text">
+            <span className="dm-section-badge-light">CELEBRATIONS</span>
             <h2>Our Students, Our Pride! 🌟</h2>
-            <p>Real photos of certificate distribution and live feedback videos from our proud achievers.</p>
+            <p>Watch our students receive their official certifications and share their stories.</p>
           </div>
 
           <div className="dm-celebrations-container">
-            {/* Left Column: Image Gallery (Certificate Ceremony Snapshots) */}
+            {/* Left Column: Image Gallery (Certificate Ceremony Snapshots - Autoplay Slider) */}
             <div className="dm-celebrations-left">
-              <h3 className="celebration-title">📸 Certificate Ceremony Moments</h3>
+              <h3 className="celebration-title dark-text-title">📸 Certificate Ceremony Moments</h3>
               <div className="celebration-main-photo-wrapper">
                 <img 
                   src={studentSnapshots[activePhoto]} 
-                  alt="Student receiving certificate" 
+                  alt="Student receiving certificate ceremony" 
                   className="celebration-main-photo" 
                 />
-                <div className="photo-navigation">
-                  <button 
-                    onClick={() => setActivePhoto(prev => (prev === 0 ? studentSnapshots.length - 1 : prev - 1))}
-                    className="nav-btn"
-                  >
-                    ❮
-                  </button>
-                  <span className="photo-indicator">{activePhoto + 1} / {studentSnapshots.length}</span>
-                  <button 
-                    onClick={() => setActivePhoto(prev => (prev === studentSnapshots.length - 1 ? 0 : prev + 1))}
-                    className="nav-btn"
-                  >
-                    ❯
-                  </button>
+                <div className="photo-navigation-bar">
+                  <span className="photo-indicator-text">Auto-playing • Snapshot {activePhoto + 1} of {studentSnapshots.length}</span>
                 </div>
               </div>
-              <div className="celebration-thumbnails">
+              <div className="celebration-thumbnails-grid">
                 {studentSnapshots.map((src, index) => (
                   <div 
                     key={index}
-                    className={`celebration-thumb ${activePhoto === index ? 'active' : ''}`}
+                    className={`celebration-thumb-light ${activePhoto === index ? 'active' : ''}`}
                     onClick={() => setActivePhoto(index)}
                   >
-                    <img src={src} alt={`Thumbnail ${index + 1}`} />
+                    <img src={src} alt={`Ceremony Snapshot ${index + 1}`} />
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right Column: Live Student Feedback Video */}
+            {/* Right Column: Live Student Feedback Video (9:16 aspect ratio vertical view) */}
             <div className="dm-celebrations-right">
-              <h3 className="celebration-title">🎥 Student Feedback & Success Videos</h3>
-              <div className="celebration-video-wrapper">
-                <video 
-                  key={activeVideo}
-                  controls 
-                  preload="metadata"
-                  className="celebration-main-video"
-                  autoPlay={false}
-                  poster="/vedios-and-photos/poster.PNG"
-                >
-                  <source src={studentVideos[activeVideo].src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <h3 className="celebration-title dark-text-title">🎥 Student Register Stories</h3>
+              <div className="celebration-video-mobile-mockup">
+                <div className="mobile-speaker"></div>
+                <div className="mobile-screen-container">
+                  <video 
+                    key={activeVideo}
+                    controls 
+                    preload="metadata"
+                    className="celebration-vertical-video"
+                    autoPlay={false}
+                    poster="/vedios-and-photos/poster.PNG"
+                  >
+                    <source src={studentVideos[activeVideo].src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="mobile-home-button"></div>
               </div>
-              <div className="celebration-video-list">
+              
+              {/* Button playlist row under player */}
+              <div className="celebration-video-pill-selector">
                 {studentVideos.map((video, index) => (
-                  <div 
+                  <button 
                     key={index}
-                    className={`video-item-card ${activeVideo === index ? 'active' : ''}`}
+                    className={`video-pill-btn ${activeVideo === index ? 'active' : ''}`}
                     onClick={() => setActiveVideo(index)}
                   >
-                    <div className="video-card-icon">
-                      {activeVideo === index ? '▶️' : '📹'}
-                    </div>
-                    <div className="video-card-info">
-                      <h4>{video.title}</h4>
-                      <p>MD Coaching Hub Student</p>
-                    </div>
-                  </div>
+                    {video.title}
+                  </button>
                 ))}
               </div>
             </div>
