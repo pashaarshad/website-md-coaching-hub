@@ -1,0 +1,3 @@
+module.exports=[5316,a=>{"use strict";var b=a.i(72131);a.s(["default",0,function(){return(0,b.useEffect)(()=>{let a=document.querySelectorAll(".reveal"),b=new IntersectionObserver(a=>{a.forEach(a=>{a.isIntersecting&&a.target.classList.add("visible")})},{threshold:.1,rootMargin:"0px 0px -50px 0px"});return a.forEach(a=>b.observe(a)),()=>b.disconnect()},[]),null}])}];
+
+//# sourceMappingURL=app_components_ScrollReveal_06y_mj5.js.map

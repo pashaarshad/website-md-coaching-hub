@@ -84,8 +84,8 @@ export default function DigitalMarketingLanding() {
       setTimeout(() => {
         setCurrentSlide(prev => (prev + 1) % testimonials.length);
         setFadeState('fade-in');
-      }, 300); // matches fade out time
-    }, 2500); // slide every 2.5 seconds (allowing 2 seconds full view)
+      }, 300);
+    }, 2500);
     return () => clearInterval(slideTimer);
   }, [testimonials.length]);
 
@@ -94,7 +94,7 @@ export default function DigitalMarketingLanding() {
       id: 101,
       title: 'Digital Marketing Masterclass',
       price: 15000,
-      image: '/images/b818b7d4bfb485e1301ea35820c498d2936f73e9.png',
+      image: '/vedios-and-photos/poster.PNG',
       label: 'DIGITAL',
       sublabel: 'MARKETING',
       duration: '4 Weeks',
@@ -118,6 +118,29 @@ export default function DigitalMarketingLanding() {
     { name: 'Influencer Collaboration', desc: 'Discover high-converting micro-influencers, run ROI-driven outreach campaigns, manage content contracts, and scale brand awareness.', icon: '🤝' },
   ];
 
+  // Student snapshots from videos-and-photos
+  const studentSnapshots = [
+    '/vedios-and-photos/SnapInsta.to_670566784_18085789823581881_7238643967236599453_n.jpg.jpeg',
+    '/vedios-and-photos/SnapInsta.to_670589085_18085789865581881_3062715464507749088_n.jpg.jpeg',
+    '/vedios-and-photos/SnapInsta.to_670833420_18085789847581881_7480066450309375831_n.jpg.jpeg',
+    '/vedios-and-photos/SnapInsta.to_670860895_18085789832581881_274540085624233984_n.jpg.jpeg',
+    '/vedios-and-photos/SnapInsta.to_671058814_18085789874581881_1152826359781236174_n.jpg.jpeg',
+    '/vedios-and-photos/SnapInsta.to_671108377_18085789862581881_5097290585760954277_n.jpg.jpeg'
+  ];
+
+  // Student videos from videos-and-photos
+  const studentVideos = [
+    { src: '/vedios-and-photos/SnapInsta.to_AQMn7-Mbp1h44iI95UGX680uGmF6KTayWXFMS7NqzN2WHWgx-4YWc6TPO38MFJD6xBdp4-OOeVossj9FZmKTiiET.mp4', title: 'Student Success Story & Certification' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQO-xtq0q84QpnmzWLj4gnhtsJbPv1g0OIGagaLBvJvu6Ow5kd7BuLWi0RQ6v3bsP_0cR6IDItOuiCO3SeqAHM05vHSwM6BTtNLbsz8.mp4', title: 'Agency Placement Review' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQO0XCNKvB_g21ncu_c4A5pbMaDV6DFdGDNHOFdAylmglBPbtKIMu46XnZgLHIEXi6yWhd-EQOepwsXD84wAmPi6NAL0muy903KA9GY.mp4', title: 'Graduation Day Celebration' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOCqrAetqgOQf6e2-paNdfilCX2pACZf7EuaGb8Z9IqlN9jqGztyhTzmoiNlNNfYQTvoW6lrCysURnJP_qESHOo6tWqExaN-uUGXiI.mp4', title: 'Meta Ads & Campaign Experience' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOnnj2MYzki3rQmyCvJ1JW3nd9f8O5-11SrlxnjqKzw5XB3suCe6-xgCE7XQZZqnYA4Ksv2cmhUciNBXxvruZ472HoXmJeE0XJVWOA.mp4', title: 'Live Performance Marketing' },
+    { src: '/vedios-and-photos/SnapInsta.to_AQOoJhT8wDERFpBP4-LSqfnnznl5CXzt2NQZyGtwiCTvOzybjLioIRq9TSuoqFeQJq1Mo9DNa3Qg21r2O_o8Yn9aiwxwRvF04h3SRGY.mp4', title: 'Direct Student Feedback' }
+  ];
+
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [activeVideo, setActiveVideo] = useState(0);
+
   return (
     <>
       <ScrollReveal />
@@ -138,8 +161,8 @@ export default function DigitalMarketingLanding() {
                 <div className="dm-price-old"><span>₹60,000</span></div>
                 <div className="dm-price-new">₹15,000</div>
                 <div className="dm-offer-tag">
-                  <span className="star">⭐</span> 75% OFF Limited Offer!
-                  <div className="offer-underline"></div>
+                   <span className="star">⭐</span> 75% OFF Limited Offer!
+                   <div className="offer-underline"></div>
                 </div>
              </div>
 
@@ -158,7 +181,7 @@ export default function DigitalMarketingLanding() {
           </div>
 
           <div className="dm-hero-image">
-            <img src="/images/16_Dark_Blue_Illustrative_Digital_Marketing_Agency_Instagram_Post.png" alt="Digital Marketing Course" />
+            <img src="/vedios-and-photos/poster.PNG" alt="Digital Marketing Course Poster" />
             <div className="dm-glow-circle-red"></div>
           </div>
           
@@ -204,7 +227,7 @@ export default function DigitalMarketingLanding() {
           </div>
         </section>
 
-        {/* Why Choose Us Section (New) */}
+        {/* Why Choose Us Section */}
         <section className="dm-why-choose-section">
           <div className="dm-why-choose-container reveal">
             <div className="dm-why-choose-left">
@@ -255,6 +278,90 @@ export default function DigitalMarketingLanding() {
 
               <div className="why-cta-wrapper">
                 <button className="dm-btn-premium-buy pulse" onClick={handleBuyNow}>Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Brand New: Student Success Celebrations Section */}
+        <section className="dm-celebrations-section reveal">
+          <div className="dm-celebrations-header">
+            <span className="dm-section-badge">CELEBRATIONS</span>
+            <h2>Our Students, Our Pride! 🌟</h2>
+            <p>Real photos of certificate distribution and live feedback videos from our proud achievers.</p>
+          </div>
+
+          <div className="dm-celebrations-container">
+            {/* Left Column: Image Gallery (Certificate Ceremony Snapshots) */}
+            <div className="dm-celebrations-left">
+              <h3 className="celebration-title">📸 Certificate Ceremony Moments</h3>
+              <div className="celebration-main-photo-wrapper">
+                <img 
+                  src={studentSnapshots[activePhoto]} 
+                  alt="Student receiving certificate" 
+                  className="celebration-main-photo" 
+                />
+                <div className="photo-navigation">
+                  <button 
+                    onClick={() => setActivePhoto(prev => (prev === 0 ? studentSnapshots.length - 1 : prev - 1))}
+                    className="nav-btn"
+                  >
+                    ❮
+                  </button>
+                  <span className="photo-indicator">{activePhoto + 1} / {studentSnapshots.length}</span>
+                  <button 
+                    onClick={() => setActivePhoto(prev => (prev === studentSnapshots.length - 1 ? 0 : prev + 1))}
+                    className="nav-btn"
+                  >
+                    ❯
+                  </button>
+                </div>
+              </div>
+              <div className="celebration-thumbnails">
+                {studentSnapshots.map((src, index) => (
+                  <div 
+                    key={index}
+                    className={`celebration-thumb ${activePhoto === index ? 'active' : ''}`}
+                    onClick={() => setActivePhoto(index)}
+                  >
+                    <img src={src} alt={`Thumbnail ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Live Student Feedback Video */}
+            <div className="dm-celebrations-right">
+              <h3 className="celebration-title">🎥 Student Feedback & Success Videos</h3>
+              <div className="celebration-video-wrapper">
+                <video 
+                  key={activeVideo}
+                  controls 
+                  preload="metadata"
+                  className="celebration-main-video"
+                  autoPlay={false}
+                  poster="/vedios-and-photos/poster.PNG"
+                >
+                  <source src={studentVideos[activeVideo].src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="celebration-video-list">
+                {studentVideos.map((video, index) => (
+                  <div 
+                    key={index}
+                    className={`video-item-card ${activeVideo === index ? 'active' : ''}`}
+                    onClick={() => setActiveVideo(index)}
+                  >
+                    <div className="video-card-icon">
+                      {activeVideo === index ? '▶️' : '📹'}
+                    </div>
+                    <div className="video-card-info">
+                      <h4>{video.title}</h4>
+                      <p>MD Coaching Hub Student</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
