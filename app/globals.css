@@ -29,7 +29,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden !important;
-  overflow-y: auto !important;
+  overflow-y: scroll !important;
 }
 
 body {
@@ -1256,27 +1256,78 @@ img {
 }
 
 .demo-credentials {
-  background: var(--off-white);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fffbeb, #fde68a);
+  border: 1px solid #fcd34d;
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.1);
 }
 
-.demo-credentials p { font-size: 0.8rem; margin-bottom: 0.5rem; }
+.demo-credentials p { 
+  font-size: 0.9rem; 
+  margin-bottom: 0.8rem; 
+  color: #78350f;
+  font-weight: 600;
+}
 
 .demo-account {
-  font-size: 0.75rem;
-  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  padding: 0.6rem 1rem;
   background: var(--white);
-  border-radius: 6px;
-  margin-top: 0.4rem;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+  margin-top: 0.6rem;
   cursor: pointer;
-  transition: var(--transition);
-  color: var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: #78350f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
 }
 
-.demo-account:hover { background: var(--primary); color: var(--white); }
-.demo-account span { font-weight: 600; }
+.demo-account:hover { 
+  background: #78350f; 
+  color: var(--white); 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(120, 53, 15, 0.25);
+  border-color: #78350f;
+}
+
+.demo-account span { 
+  font-weight: 700; 
+}
+
+/* Contact Email Custom Highlight Styles */
+.email-highlight-box {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(168, 85, 247, 0.08)) !important;
+  border: 1px dashed rgba(37, 99, 235, 0.25) !important;
+  padding: 1.4rem !important;
+  border-radius: 12px !important;
+  margin-top: 0.8rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.04);
+}
+
+.email-icon-large {
+  font-size: 2.2rem !important;
+  background: var(--white) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.email-link-large {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  margin-top: 0.4rem;
+  transition: var(--transition);
+}
+
+.email-link-large:hover {
+  color: #2563eb !important;
+  transform: translateX(2px);
+}
+
 
 .auth-switch {
   text-align: center;

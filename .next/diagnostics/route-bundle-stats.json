@@ -1,11 +1,11 @@
 [
   {
     "route": "/digital-marketing",
-    "firstLoadUncompressedJsBytes": 557980,
+    "firstLoadUncompressedJsBytes": 557973,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\05ea2g3nm5xl7.js",
       ".next\\static\\chunks\\0d3shmwh5_nmn.js",
-      ".next\\static\\chunks\\0tc4hwy-5g_in.js",
+      ".next\\static\\chunks\\0gjye3rg2xlh~.js",
       ".next\\static\\chunks\\0bzupvr5gt3k9.js",
       ".next\\static\\chunks\\0pqt~8bl3ukh4.js",
       ".next\\static\\chunks\\16g.ca89g7fib.js",
@@ -43,11 +43,11 @@
   },
   {
     "route": "/contact",
-    "firstLoadUncompressedJsBytes": 543435,
+    "firstLoadUncompressedJsBytes": 543457,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\05ea2g3nm5xl7.js",
       ".next\\static\\chunks\\0d3shmwh5_nmn.js",
-      ".next\\static\\chunks\\08zxmdohwoio8.js",
+      ".next\\static\\chunks\\03kbi3_0xjbca.js",
       ".next\\static\\chunks\\0bzupvr5gt3k9.js",
       ".next\\static\\chunks\\0pqt~8bl3ukh4.js",
       ".next\\static\\chunks\\16g.ca89g7fib.js",

@@ -51,11 +51,12 @@ export default function ContactPage() {
                 <p>+91 98765 43210<br />+91 87654 32109</p>
               </div>
             </div>
-            <div className="contact-info-item">
-              <div className="contact-icon">✉️</div>
+            <div className="contact-info-item email-highlight-box">
+              <div className="contact-icon email-icon-large">✉️</div>
               <div>
-                <h4>Email</h4>
-                <p>info@mdcoachinghub.com<br />admissions@mdcoachinghub.com</p>
+                <h4>Official Email Addresses</h4>
+                <p className="email-link-large">info@mdcoachinghub.com</p>
+                <p className="email-link-large">admissions@mdcoachinghub.com</p>
               </div>
             </div>
             <div className="contact-info-item">

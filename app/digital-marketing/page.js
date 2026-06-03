@@ -155,7 +155,7 @@ export default function DigitalMarketingLanding() {
       <div className="landing-page-dm">
         
         {/* Hero Banner */}
-        <section className="dm-hero reveal">
+        <section className="dm-hero">
           <div className="dm-hero-container">
             <div className="dm-hero-content">
                <h1 className="dm-title">🚀 Become a <span>Digital Marketing Expert</span> in 30 Days</h1>
