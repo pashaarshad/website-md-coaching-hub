@@ -1,0 +1,136 @@
+{
+  "generatedAt": "2026-06-03T18:20:08.278Z",
+  "totalCertificates": 13,
+  "certificates": [
+    {
+      "code": "MDCH/2026/INT-007",
+      "studentName": "Anil Bugaliya",
+      "course": "Web Development",
+      "duration": "16 August to 18 February",
+      "issueDate": "18 March 2026",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/ANIL BUGALIYA CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2026/INT-008",
+      "studentName": "Bajrang Godara",
+      "course": "Web Development",
+      "duration": "16 September to 18 March",
+      "issueDate": "18 March 2026",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/BAJRANG GODARA CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2025/CNT-508",
+      "studentName": "Certificate",
+      "course": "Internship Program",
+      "duration": "18 dec.",
+      "issueDate": "20 March 2026",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/Blue and Gold Modern Certificate of Internship Certificate.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-263",
+      "studentName": "Deepak Kukna",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/DEEPAK KUKNA CRTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-262",
+      "studentName": "Deeparam",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/DEEPARAM CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-259",
+      "studentName": "Dhanesh Netar",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/dhanesh netar certificate.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-260",
+      "studentName": "Gajendra Dhaka",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/GAJENDRA DHAKA CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2026/INT-020",
+      "studentName": "Ravi Dewal",
+      "course": "Web Development",
+      "duration": "16 September to 18 March",
+      "issueDate": "18 March 2026",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/RAVI DEWAL CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-261",
+      "studentName": "Rohit Arya",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/ROHIT ARYA CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-258",
+      "studentName": "Sumit Kumar",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/sumit kumar certificate (2).pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-264",
+      "studentName": "Tamnna Jakhar",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/TAMNNA JAKHAR.pdf"
+    },
+    {
+      "code": "MDCH/2025/INT-265",
+      "studentName": "Vikash Dukiya",
+      "course": "Web Development",
+      "duration": "16 June to 17 December",
+      "issueDate": "17 December 2025",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/VIKASH DUKIYA CERTIFICATE.pdf"
+    },
+    {
+      "code": "MDCH/2026/INT-208",
+      "studentName": "Yuvraj Jakhar",
+      "course": "Web Development",
+      "duration": "16 September to 18 March",
+      "issueDate": "18 March 2026",
+      "grade": "Completed",
+      "status": "Verified & Active",
+      "pdfFile": "/certificate/Yash Meena Certificate.pdf"
+    }
+  ]
+}

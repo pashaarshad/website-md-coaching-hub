@@ -15,11 +15,11 @@
   },
   {
     "route": "/certification",
-    "firstLoadUncompressedJsBytes": 549174,
+    "firstLoadUncompressedJsBytes": 551831,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\05ea2g3nm5xl7.js",
       ".next\\static\\chunks\\0d3shmwh5_nmn.js",
-      ".next\\static\\chunks\\0f3fgy.jin7zt.js",
+      ".next\\static\\chunks\\0lo_rq1inoz68.js",
       ".next\\static\\chunks\\0bzupvr5gt3k9.js",
       ".next\\static\\chunks\\0pqt~8bl3ukh4.js",
       ".next\\static\\chunks\\16g.ca89g7fib.js",
